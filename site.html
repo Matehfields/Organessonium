@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Organess&ocirc;nium | Vis&atilde;o geral</title>
+    <link rel="stylesheet" href="site.css"/>
+</head>
+<body>
+<header class="site-topbar">
+    <a class="site-brand" href="#inicio" aria-label="Organess&ocirc;nium">
+        <span class="logo-omega">&Omega;</span>
+        <span>Organess&ocirc;nium</span>
+    </a>
+    <nav class="site-nav" aria-label="Se&ccedil;&otilde;es">
+        <a href="#funcionamento">Como funciona</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#visual">Visual</a>
+    </nav>
+    <div class="topbar-tools" role="group" aria-label="Tema">
+        <button class="theme-button active" type="button" data-site-theme="dark" title="Tema escuro">
+            <span data-icon="dark_mode" data-size="16"></span>
+            <span>Escuro</span>
+        </button>
+        <button class="theme-button" type="button" data-site-theme="light" title="Tema claro">
+            <span data-icon="light_mode" data-size="16"></span>
+            <span>Claro</span>
+        </button>
+    </div>
+</header>
+
+<main id="inicio">
+    <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <span class="eyebrow">Arquivo pessoal com interface de desktop</span>
+            <h1 id="hero-title">Organess&ocirc;nium</h1>
+            <p class="hero-lede">
+                Um gerenciador de arquivos que usa um bot do Discord como ponte para armazenar, indexar,
+                organizar, visualizar e baixar seus arquivos em uma experi&ecirc;ncia limpa e direta.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="#funcionamento">
+                    <span data-icon="open_in_new" data-size="17"></span>
+                    Entender o fluxo
+                </a>
+                <a class="btn-secondary" href="#recursos">
+                    <span data-icon="grid_view" data-size="17"></span>
+                    Ver recursos
+                </a>
+            </div>
+            <div class="quick-stats" aria-label="Resumo">
+                <div>
+                    <strong>Discord</strong>
+                    <span>canais <code>names</code> e <code>apps</code></span>
+                </div>
+                <div>
+                    <strong>10 MB</strong>
+                    <span>partes autom&aacute;ticas para uploads grandes</span>
+                </div>
+                <div>
+                    <strong>1-16</strong>
+                    <span>threads configur&aacute;veis para download</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-preview" aria-label="Pr&eacute;via visual do Organess&ocirc;nium">
+            <div class="mock-topbar">
+                <div class="mock-brand">
+                    <span class="logo-omega">&Omega;</span>
+                    <div>
+                        <strong>Organess&ocirc;nium</strong>
+                        <span>Raiz / Projetos</span>
+                    </div>
+                </div>
+                <div class="mock-search">
+                    <span data-icon="search" data-size="17"></span>
+                    <span>Pesquisar em Organess&ocirc;nium...</span>
+                </div>
+                <div class="mock-actions">
+                    <span data-icon="grid_view" data-size="18"></span>
+                    <span data-icon="upload" data-size="18"></span>
+                    <span data-icon="settings" data-size="18"></span>
+                </div>
+            </div>
+            <div class="mock-main">
+                <div class="folder-strip">
+                    <div class="folder-chip" style="--folder-color:#8AB4F8">
+                        <span data-icon="folder" data-size="24"></span>
+                        <span>Projetos</span>
+                        <small>18</small>
+                    </div>
+                    <div class="folder-chip" style="--folder-color:#81C995">
+                        <span data-icon="folder" data-size="24"></span>
+                        <span>Imagens</span>
+                        <small>42</small>
+                    </div>
+                </div>
+                <div class="mock-grid">
+                    <article class="file-tile selected">
+                        <div class="file-thumb image-thumb">
+                            <span data-icon="image" data-size="46"></span>
+                        </div>
+                        <footer>
+                            <span>capa-app.png</span>
+                            <button type="button" aria-label="Op&ccedil;&otilde;es"><span data-icon="more_vert" data-size="16"></span></button>
+                        </footer>
+                    </article>
+                    <article class="file-tile">
+                        <div class="file-thumb pdf-thumb">
+                            <span data-icon="picture_as_pdf" data-size="46"></span>
+                        </div>
+                        <footer>
+                            <span>manual.pdf</span>
+                            <button type="button" aria-label="Op&ccedil;&otilde;es"><span data-icon="more_vert" data-size="16"></span></button>
+                        </footer>
+                    </article>
+                    <article class="file-tile">
+                        <div class="file-thumb zip-thumb">
+                            <span data-icon="folder_zip" data-size="46"></span>
+                        </div>
+                        <footer>
+                            <span>build.7z</span>
+                            <button type="button" aria-label="Op&ccedil;&otilde;es"><span data-icon="more_vert" data-size="16"></span></button>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+            <div class="mock-status">
+                <span>OK 63 arquivo(s).</span>
+                <span>2.4 GB utilizados</span>
+            </div>
+            <div class="transfer-card">
+                <div class="transfer-head">
+                    <strong>Transfer&ecirc;ncias</strong>
+                    <span data-icon="remove" data-size="15"></span>
+                </div>
+                <div class="transfer-row">
+                    <span class="transfer-icon"><span data-icon="download" data-size="15"></span></span>
+                    <div>
+                        <strong>video-final.mp4</strong>
+                        <span>Montando parte 3/6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionamento" class="content-band" aria-labelledby="flow-title">
+        <div class="section-heading">
+            <span class="eyebrow">Como funciona</span>
+            <h2 id="flow-title">Do arquivo local ao Discord, e de volta</h2>
+            <p>
+                O app separa armazenamento, &iacute;ndice e interface: o Discord guarda os anexos,
+                o canal <code>names</code> guarda o cat&aacute;logo e o Organess&ocirc;nium entrega a navega&ccedil;&atilde;o.
+            </p>
+        </div>
+        <div class="flow-grid">
+            <article class="flow-step">
+                <span class="step-number">01</span>
+                <span class="step-icon" data-icon="settings" data-size="22"></span>
+                <h3>Conecta o bot</h3>
+                <p>Voc&ecirc; informa o token do bot, o ID do canal <code>names</code> e o ID do f&oacute;rum <code>apps</code>.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">02</span>
+                <span class="step-icon" data-icon="upload" data-size="22"></span>
+                <h3>Envia arquivos</h3>
+                <p>Arquivos grandes s&atilde;o divididos em partes de 10 MB e publicados em uma thread do f&oacute;rum.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">03</span>
+                <span class="step-icon" data-icon="folder" data-size="22"></span>
+                <h3>Registra o &iacute;ndice</h3>
+                <p>O canal <code>names</code> salva metadados como nome, tamanho, data, pasta e cor da pasta.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">04</span>
+                <span class="step-icon" data-icon="download" data-size="22"></span>
+                <h3>Baixa e remonta</h3>
+                <p>Na hora do download, o app recolhe os anexos, baixa as partes em paralelo e recria o arquivo final.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="recursos" class="content-band" aria-labelledby="features-title">
+        <div class="section-heading">
+            <span class="eyebrow">Recursos do app</span>
+            <h2 id="features-title">Ferramentas para organizar sem atrito</h2>
+            <p>O Organess&ocirc;nium se comporta como um explorador de arquivos, mas com upload, download e pr&eacute;vias ligados ao bot.</p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="cloud_upload" data-size="24"></span>
+                <h3>Upload por arquivo ou pasta</h3>
+                <p>Envie itens individuais, solte arquivos na janela ou carregue uma pasta inteira mantendo a organiza&ccedil;&atilde;o.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="drive_file_move" data-size="24"></span>
+                <h3>Pastas virtuais</h3>
+                <p>Crie pastas, mova itens, selecione em lote e personalize cores para reconhecer grupos rapidamente.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="search" data-size="24"></span>
+                <h3>Busca, ordena&ccedil;&atilde;o e modos</h3>
+                <p>Pesquise por nome, alterne grade/lista e ordene por nome, tamanho, data mais recente ou mais antiga.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="image" data-size="24"></span>
+                <h3>Pr&eacute;vias inteligentes</h3>
+                <p>Veja imagens, v&iacute;deos, PDFs, documentos, texto e arquivos compactados sem sair da interface.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="download" data-size="24"></span>
+                <h3>Downloads configur&aacute;veis</h3>
+                <p>Defina pasta de destino, pasta tempor&aacute;ria e quantidade de threads para baixar mais confortavelmente.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="settings" data-size="24"></span>
+                <h3>Apar&ecirc;ncia ajust&aacute;vel</h3>
+                <p>Use tema claro ou escuro, idioma portugu&ecirc;s/ingl&ecirc;s, tamanho de cards e pr&eacute;vias ativadas ou n&atilde;o.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="visual" class="content-band visual-band" aria-labelledby="visual-title">
+        <div class="section-heading">
+            <span class="eyebrow">Parte visual</span>
+            <h2 id="visual-title">A mesma linguagem da interface principal</h2>
+            <p>
+                A p&aacute;gina usa os tons do app: fundo profundo, superf&iacute;cies cinza, bordas discretas,
+                destaque azul e cores funcionais para tipos de arquivo.
+            </p>
+        </div>
+        <div class="visual-layout">
+            <div class="palette-list" aria-label="Paleta">
+                <div class="swatch-row"><span style="--swatch:#0D0D0D"></span><strong>Fundo</strong><code>#0D0D0D</code></div>
+                <div class="swatch-row"><span style="--swatch:#1a1a1a"></span><strong>Superf&iacute;cie</strong><code>#1a1a1a</code></div>
+                <div class="swatch-row"><span style="--swatch:#4A90D9"></span><strong>Destaque</strong><code>#4A90D9</code></div>
+                <div class="swatch-row"><span style="--swatch:#F28B82"></span><strong>Imagem</strong><code>#F28B82</code></div>
+                <div class="swatch-row"><span style="--swatch:#81C995"></span><strong>M&iacute;dia</strong><code>#81C995</code></div>
+            </div>
+            <div class="settings-sample" aria-label="Controles visuais">
+                <div class="sample-header">
+                    <strong>Configura&ccedil;&otilde;es</strong>
+                    <span data-icon="close" data-size="17"></span>
+                </div>
+                <div class="sample-section">
+                    <span class="sample-label">Tema</span>
+                    <div class="segmented">
+                        <button class="active" type="button"><span data-icon="dark_mode" data-size="15"></span>Escuro</button>
+                        <button type="button"><span data-icon="light_mode" data-size="15"></span>Claro</button>
+                    </div>
+                </div>
+                <div class="sample-section">
+                    <span class="sample-label">Tamanho dos cards</span>
+                    <div class="segmented compact">
+                        <button type="button">Pequeno</button>
+                        <button class="active" type="button">M&eacute;dio</button>
+                        <button type="button">Grande</button>
+                    </div>
+                </div>
+                <div class="sample-section">
+                    <span class="sample-label">Cor da pasta</span>
+                    <div class="color-dots">
+                        <span style="--dot:#8AB4F8"></span>
+                        <span style="--dot:#F28B82"></span>
+                        <span style="--dot:#FDD663"></span>
+                        <span style="--dot:#81C995"></span>
+                        <span style="--dot:#C58AF9"></span>
+                        <span style="--dot:#FFB74D"></span>
+                    </div>
+                </div>
+                <button class="btn-primary sample-save" type="button">Salvar configura&ccedil;&otilde;es</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <span class="logo-omega">&Omega;</span>
+    <span>Organess&ocirc;nium transforma threads do Discord em uma biblioteca naveg&aacute;vel.</span>
+</footer>
+
+<script src="icons.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
