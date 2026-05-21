@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Organessônium | Site oficial</title>
+    <link rel="icon" type="image/png" href="images/logo.png"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<header class="site-topbar">
+    <a class="site-brand" href="#inicio" aria-label="Organessônium">
+        <span class="logo-omega">Ω</span>
+        <span>Organessônium</span>
+    </a>
+    <nav class="site-nav" aria-label="Seções do site" data-i18n-attr="aria-label:navLabel">
+        <a href="#funcionamento" data-i18n="navFlow">Funcionamento</a>
+        <a href="#recursos" data-i18n="navFeatures">Recursos</a>
+        <a href="#editor" data-i18n="navEditor">Editor e prévias</a>
+    </nav>
+    <button id="language-toggle" class="language-toggle" type="button" aria-label="Alternar idioma">
+        <span data-i18n="languageButton">Português</span>
+    </button>
+    <button id="theme-toggle" class="theme-toggle-button" type="button" aria-label="Alternar tema" title="Alternar tema">
+        <span data-icon="dark_mode" data-size="17"></span>
+    </button>
+</header>
+
+<main id="inicio">
+    <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <span class="eyebrow" data-i18n="heroEyebrow">Gerenciador de arquivos com Discord como armazenamento</span>
+            <h1 id="hero-title">Organessônium</h1>
+            <p class="hero-lede" data-i18n="heroLead">
+                O Organessônium transforma canais do Discord em uma biblioteca navegável: você envia arquivos,
+                organiza tudo em pastas, pré-visualiza documentos e baixa os itens de volta quando precisar.
+                A interface foi feita para parecer familiar, próxima de um explorador de arquivos moderno.
+            </p>
+            <div class="hero-actions">
+                <a class="btn-primary" href="#funcionamento">
+                    <span data-icon="open_in_new" data-size="17"></span>
+                    <span data-i18n="heroPrimary">Entender o fluxo</span>
+                </a>
+                <a class="btn-secondary" href="#recursos">
+                    <span data-icon="grid_view" data-size="17"></span>
+                    <span data-i18n="heroSecondary">Ver recursos</span>
+                </a>
+            </div>
+            <div class="download-actions" aria-label="Downloads" data-i18n-attr="aria-label:downloadLabel">
+                <a href="downloads/Organessonium.jar" download>
+                    <span data-icon="download" data-size="16"></span>
+                    <span data-i18n="downloadJar">Download .jar</span>
+                </a>
+                <a href="downloads/Organessonium.exe" download>
+                    <span data-icon="download" data-size="16"></span>
+                    <span data-i18n="downloadExe">Download .exe</span>
+                </a>
+                <a href="downloads/Organessonium-portable-installer.exe" download>
+                    <span data-icon="folder_zip" data-size="16"></span>
+                    <span data-i18n="downloadInstaller">Instalador portátil</span>
+                </a>
+                <a href="downloads/Organessonium-source.zip" download>
+                    <span data-icon="code" data-size="16"></span>
+                    <span data-i18n="downloadSource">Código fonte .zip</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="product-shot" aria-label="Prévia simplificada da interface do Organessônium" data-i18n-attr="aria-label:mockLabel">
+            <div class="mock-topbar">
+                <div class="mock-brand">
+                    <span class="logo-omega">Ω</span>
+                    <div>
+                        <strong>Organessônium</strong>
+                        <span data-i18n="mockPath">Raiz / Estudos</span>
+                    </div>
+                </div>
+                <div class="mock-search">
+                    <span data-icon="search" data-size="17"></span>
+                    <span data-i18n="mockSearch">Pesquisar em Organessônium...</span>
+                </div>
+                <div class="mock-actions">
+                    <span data-icon="grid_view" data-size="18"></span>
+                    <span data-icon="folder_open" data-size="18"></span>
+                    <span data-icon="upload" data-size="18"></span>
+                </div>
+            </div>
+            <div class="mock-body">
+                <div class="folder-chip" style="--folder-color:#8AB4F8">
+                    <span data-icon="folder" data-size="24"></span>
+                    <span data-i18n="mockFolder">Documentos</span>
+                    <small>24</small>
+                </div>
+                <div class="selection-box" aria-hidden="true"></div>
+                <div class="file-grid">
+                    <article class="file-tile selected">
+                        <div class="tile-icon image-icon"><span data-icon="image" data-size="42"></span></div>
+                        <footer><span>capa.png</span><span data-icon="more_vert" data-size="15"></span></footer>
+                    </article>
+                    <article class="file-tile selected">
+                        <div class="tile-icon pdf-icon"><span data-icon="picture_as_pdf" data-size="42"></span></div>
+                        <footer><span>relatorio.pdf</span><span data-icon="more_vert" data-size="15"></span></footer>
+                    </article>
+                    <article class="file-tile">
+                        <div class="tile-icon doc-icon"><span data-icon="description" data-size="42"></span></div>
+                        <footer><span>anotacoes.docx</span><span data-icon="more_vert" data-size="15"></span></footer>
+                    </article>
+                    <article class="file-tile">
+                        <div class="tile-icon code-icon"><span data-icon="code" data-size="42"></span></div>
+                        <footer><span>planejamento.md</span><span data-icon="more_vert" data-size="15"></span></footer>
+                    </article>
+                </div>
+                <div class="mock-selection-bar" aria-label="Barra de seleção">
+                    <span class="mock-selection-count" data-i18n="mockSelected">2 selecionados</span>
+                    <div class="mock-selection-actions">
+                        <button type="button"><span data-icon="download" data-size="15"></span><span data-i18n="mockDownload">Baixar</span></button>
+                        <button type="button"><span data-icon="drive_file_move" data-size="15"></span><span data-i18n="mockMove">Mover</span></button>
+                        <button class="danger" type="button"><span data-icon="delete" data-size="15"></span><span data-i18n="mockDelete">Apagar</span></button>
+                    </div>
+                    <button class="mock-close" type="button" aria-label="Limpar seleção" data-i18n-attr="aria-label:mockClear"><span data-icon="close" data-size="15"></span></button>
+                </div>
+            </div>
+            <div class="mock-status">
+                <span data-i18n="mockStatusLeft">2 selecionados</span>
+                <span data-i18n="mockStatusRight">Arraste para mover ou solte arquivos para enviar</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionamento" class="content-band" aria-labelledby="flow-title">
+        <div class="section-heading">
+            <span class="eyebrow" data-i18n="flowEyebrow">Como funciona</span>
+            <h2 id="flow-title" data-i18n="flowTitle">Um app local usando o Discord como cofre de arquivos</h2>
+            <p data-i18n="flowLead">
+                O Organessônium não é só uma tela bonita em cima de anexos. Ele mantém um índice, reconstrói
+                arquivos divididos, carrega miniaturas e conversa com o bot para transformar threads em itens navegáveis.
+            </p>
+        </div>
+        <div class="flow-grid">
+            <article class="flow-step">
+                <span class="step-number">01</span>
+                <span class="step-icon" data-icon="settings" data-size="22"></span>
+                <h3 data-i18n="flow1Title">Conexão inicial</h3>
+                <p data-i18n-html="flow1Text">Você configura o token do bot, o canal <code>names</code> para o índice e o fórum <code>apps</code> para os arquivos.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">02</span>
+                <span class="step-icon" data-icon="cloud_upload" data-size="22"></span>
+                <h3 data-i18n="flow2Title">Upload em threads</h3>
+                <p data-i18n="flow2Text">Ao enviar um arquivo, o app cria uma publicação no fórum. Se passar de 10 MB, ele divide em partes e envia em sequência.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">03</span>
+                <span class="step-icon" data-icon="insert_drive_file" data-size="22"></span>
+                <h3 data-i18n="flow3Title">Índice pesquisável</h3>
+                <p data-i18n-html="flow3Text">O canal <code>names</code> guarda nome, tamanho, data, pasta, cor e ID da thread para o app listar tudo rapidamente.</p>
+            </article>
+            <article class="flow-step">
+                <span class="step-number">04</span>
+                <span class="step-icon" data-icon="download" data-size="22"></span>
+                <h3 data-i18n="flow4Title">Download e remontagem</h3>
+                <p data-i18n="flow4Text">Na volta, o app baixa os anexos com threads configuráveis, junta as partes e entrega o arquivo final no destino escolhido.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="recursos" class="content-band" aria-labelledby="features-title">
+        <div class="section-heading">
+            <span class="eyebrow" data-i18n="featuresEyebrow">Recursos do app</span>
+            <h2 id="features-title" data-i18n="featuresTitle">O essencial de um explorador de arquivos, com extras próprios</h2>
+            <p data-i18n="featuresLead">
+                A experiência foi pensada para uso frequente: arrastar, selecionar, abrir prévias, editar Markdown,
+                organizar pastas e acompanhar transferências sem precisar lidar diretamente com o Discord.
+            </p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="upload" data-size="24"></span>
+                <h3 data-i18n="featureUploadTitle">Arraste para enviar</h3>
+                <p data-i18n="featureUploadText">Solte arquivos na janela ou use o botão de upload. Também dá para enviar pastas inteiras e manter a estrutura organizada.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon green" data-icon="select_all" data-size="24"></span>
+                <h3 data-i18n="featureSelectTitle">Seleção como no Explorer</h3>
+                <p data-i18n="featureSelectText">Clique, arraste o mouse e marque vários itens com um retângulo de seleção, parecido com o Windows Explorer.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon amber" data-icon="drive_file_move" data-size="24"></span>
+                <h3 data-i18n="featureMoveTitle">Mover por arrasto</h3>
+                <p data-i18n="featureMoveText">Depois de selecionar, arraste arquivos para pastas ou para a raiz. O app mostra um fantasma visual do item sendo movido.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon purple" data-icon="view_list" data-size="24"></span>
+                <h3 data-i18n="featureTabsTitle">Abas de navegação</h3>
+                <p data-i18n="featureTabsText">O app usa abas para alternar entre arquivos e áreas abertas, como o editor Markdown, sem perder o ponto onde você estava.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon coral" data-icon="picture_as_pdf" data-size="24"></span>
+                <h3 data-i18n="featurePdfTitle">Prévia de PDFs</h3>
+                <p data-i18n="featurePdfText">PDFs são renderizados em páginas, com carregamento progressivo e camada de texto selecionável quando disponível.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="description" data-size="24"></span>
+                <h3 data-i18n="featureDocTitle">DOCX e documentos</h3>
+                <p data-i18n="featureDocText">O preview extrai texto de DOCX, ODT, planilhas e apresentações compatíveis para leitura rápida dentro do app.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon purple" data-icon="code" data-size="24"></span>
+                <h3 data-i18n="featureMarkdownTitle">Editor Markdown integrado</h3>
+                <p data-i18n-html="featureMarkdownText">Arquivos <code>.md</code> podem ser abertos em uma área própria, com modo visual, Markdown puro, toolbar e salvamento automático.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="search" data-size="24"></span>
+                <h3 data-i18n="featureSearchTitle">Busca e ordenação</h3>
+                <p data-i18n="featureSearchText">Pesquise por nome e alterne a listagem por nome, tamanho ou data. A interface mantém modos de grade e lista.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon green" data-icon="settings" data-size="24"></span>
+                <h3 data-i18n="featureLanguageTitle">Português, inglês e ajustes finos</h3>
+                <p data-i18n="featureLanguageText">A interface tem versões em português e inglês, tema claro/escuro, tamanho de cards, prévias, animações e desempenho configuráveis.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="editor" class="content-band editor-band" aria-labelledby="editor-title">
+        <div class="section-heading">
+            <span class="eyebrow" data-i18n="editorEyebrow">Editor e prévias</span>
+            <h2 id="editor-title" data-i18n="editorTitle">Abrir arquivos sem sair do Organessônium</h2>
+            <p data-i18n="editorLead">
+                As prévias evitam downloads desnecessários. Imagens, vídeos, textos, PDFs, documentos e compactados aparecem no próprio app;
+                Markdown ganhou um fluxo especial para leitura, edição e salvamento.
+            </p>
+        </div>
+        <div class="editor-layout">
+            <div class="editor-preview">
+                <div class="editor-appbar">
+                    <div class="editor-brand-mini">
+                        <span class="logo-omega">Ω</span>
+                        <strong>Organessônium</strong>
+                    </div>
+                    <div class="editor-search-mini">
+                        <span data-icon="search" data-size="16"></span>
+                        <span data-i18n="editorSearch">Pesquisar em Organessônium...</span>
+                    </div>
+                    <div class="editor-app-actions">
+                        <span data-icon="grid_view" data-size="17"></span>
+                        <span data-icon="view_list" data-size="17"></span>
+                        <span data-icon="upload" data-size="17"></span>
+                    </div>
+                </div>
+                <div class="editor-tabs">
+                    <button type="button"><span data-icon="folder" data-size="15"></span><span data-i18n="editorTabFiles">Arquivos</span></button>
+                    <button class="active" type="button"><span data-icon="description" data-size="15"></span><span>README.md</span><span data-icon="close" data-size="13"></span></button>
+                </div>
+                <div class="editor-docbar">
+                    <div class="editor-doc-meta">
+                        <span class="editor-doc-icon" data-icon="description" data-size="21"></span>
+                        <div>
+                            <small data-i18n="editorDocumentLabel">Documento</small>
+                            <strong>README.md</strong>
+                        </div>
+                        <span class="editor-save-pill" data-i18n="editorSaved">Salvo agora</span>
+                    </div>
+                    <div class="editor-tool-strip">
+                        <button type="button" aria-label="Título" title="Título" data-i18n-attr="aria-label:editorTitleGroup,title:editorTitleGroup">H1</button>
+                        <button type="button" aria-label="Negrito" title="Negrito" data-i18n-attr="aria-label:editorBold,title:editorBold">B</button>
+                        <button type="button" aria-label="Lista" title="Lista" data-i18n-attr="aria-label:editorList,title:editorList">
+                            <span data-icon="format_list_bulleted" data-size="15"></span>
+                        </button>
+                        <button type="button" aria-label="Link" title="Link">
+                            <span data-icon="link" data-size="15"></span>
+                        </button>
+                        <button type="button" aria-label="Imagem" title="Imagem" data-i18n-attr="aria-label:editorImage,title:editorImage">
+                            <span data-icon="image" data-size="15"></span>
+                        </button>
+                        <button type="button" aria-label="Código" title="Código" data-i18n-attr="aria-label:editorCode,title:editorCode">&lt;&gt;</button>
+                        <span class="editor-zoom">100%</span>
+                    </div>
+                </div>
+                <div class="editor-workspace">
+                    <article class="markdown-page">
+                        <h3 data-i18n="markdownSampleTitle">Organessônium - WIP</h3>
+                        <p><strong data-i18n="markdownSampleItem1">Prévia rápida de PDF e DOCX</strong></p>
+                        <p><strong data-i18n="markdownSampleItem2">Upload por arrastar e soltar</strong></p>
+                        <p><strong data-i18n="markdownSampleItem3">Seleção múltipla com o mouse</strong></p>
+                        <p data-i18n="markdownSampleBody">Editor de Markdown no Organessônium, com abas, toolbar e salvamento automático.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="preview-list">
+                <article>
+                    <span data-icon="picture_as_pdf" data-size="25"></span>
+                    <div>
+                        <h3 data-i18n="previewPdfTitle">PDFs paginados</h3>
+                        <p data-i18n="previewPdfText">O app renderiza páginas, mostra progresso e permite alternar entre arquivos pré-visualizáveis.</p>
+                    </div>
+                </article>
+                <article>
+                    <span data-icon="description" data-size="25"></span>
+                    <div>
+                        <h3 data-i18n="previewDocTitle">Documentos Office</h3>
+                        <p data-i18n="previewDocText">DOCX, ODT, XLSX, PPTX e formatos próximos entram como leitura interna quando o conteúdo pode ser extraído.</p>
+                    </div>
+                </article>
+                <article>
+                    <span data-icon="folder_zip" data-size="25"></span>
+                    <div>
+                        <h3 data-i18n="previewArchiveTitle">Compactados listáveis</h3>
+                        <p data-i18n="previewArchiveText">Arquivos ZIP e outros compactados compatíveis mostram uma lista de entradas antes do download completo.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <span>Feito por Matehfields - 2026</span>
+</footer>
+
+<script src="js/icons.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
