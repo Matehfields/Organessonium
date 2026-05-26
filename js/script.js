@@ -10,13 +10,16 @@ const I18N = {
         navFlow:'Funcionamento',
         navFeatures:'Recursos',
         navEditor:'Editor e prévias',
+        navReleases:'Releases',
         languageButton:'Português',
         themeToggle:'Alternar tema',
         downloadLabel:'Downloads do Organessônium',
         downloadJar:'Download .jar',
-        downloadExe:'Download .exe',
-        downloadInstaller:'Instalador portátil',
+        downloadExe:'.exe portátil',
+        downloadInstaller:'Instalador',
+        downloadApk:'Download .apk',
         downloadSource:'Código fonte .zip',
+        releaseMoreLink:'Código fonte e outros releases',
         heroEyebrow:'Gerenciador de arquivos com Discord como armazenamento',
         heroLead:'O Organessônium transforma canais do Discord em uma biblioteca navegável: você envia arquivos, organiza tudo em pastas, pré-visualiza documentos e baixa os itens de volta quando precisar. A interface foi feita para parecer familiar, próxima de um explorador de arquivos moderno.',
         heroPrimary:'Entender o fluxo',
@@ -93,7 +96,30 @@ const I18N = {
         previewDocTitle:'Documentos Office',
         previewDocText:'DOCX, ODT, XLSX, PPTX e formatos próximos entram como leitura interna quando o conteúdo pode ser extraído.',
         previewArchiveTitle:'Compactados listáveis',
-        previewArchiveText:'Arquivos ZIP e outros compactados compatíveis mostram uma lista de entradas antes do download completo.'
+        previewArchiveText:'Arquivos ZIP e outros compactados compatíveis mostram uma lista de entradas antes do download completo.',
+        releasesDocumentTitle:'Organessônium | Releases',
+        releasesEyebrow:'Downloads por versão',
+        releasesTitle:'Releases e código fonte',
+        releasesLead:'Escolha a edição do Organessônium que combina com seu ambiente. A página principal fica com os downloads rápidos; aqui ficam os pacotes completos e os códigos fonte de cada variante.',
+        backToHome:'Voltar ao site',
+        seePackages:'Ver pacotes',
+        releaseSummaryTitle:'3 versões mantidas',
+        releaseSummaryText:'Desktop Java, desktop C# com WebView2 e mobile Flutter, cada uma com binários e fonte separados.',
+        releaseGridEyebrow:'Pacotes disponíveis',
+        releaseGridTitle:'Três caminhos para o mesmo projeto',
+        releaseGridLead:'Use os binários para instalar ou executar direto. Baixe o código fonte correspondente quando quiser estudar, modificar ou compilar uma versão específica.',
+        releaseJavaTag:'Desktop original',
+        releaseJavaTitle:'Versão Java',
+        releaseJavaText:'A base original do Organessônium, distribuída em JAR para rodar com Java instalado.',
+        releaseJavaDownloads:'Downloads Java',
+        releaseCsharpTag:'Desktop Windows',
+        releaseCsharpTitle:'Versão para Windows',
+        releaseCsharpText:'Edição para Windows com interface em WebView2, disponível como executável portátil ou instalador.',
+        releaseCsharpDownloads:'Downloads C# e WebView2',
+        releaseFlutterTag:'Mobile',
+        releaseFlutterTitle:'Versão Flutter',
+        releaseFlutterText:'Construção mobile em Flutter para Android, distribuída em APK junto do código fonte da variante mobile.',
+        releaseFlutterDownloads:'Downloads Flutter'
     },
     en: {
         documentTitle:'Organessônium | Official site',
@@ -101,13 +127,16 @@ const I18N = {
         navFlow:'How it works',
         navFeatures:'Features',
         navEditor:'Editor and previews',
+        navReleases:'Releases',
         languageButton:'English',
         themeToggle:'Toggle theme',
         downloadLabel:'Organessônium downloads',
         downloadJar:'Download .jar',
-        downloadExe:'Download .exe',
-        downloadInstaller:'Portable installer',
+        downloadExe:'Portable .exe',
+        downloadInstaller:'Installer',
+        downloadApk:'Download .apk',
         downloadSource:'Source code .zip',
+        releaseMoreLink:'Source code and other releases',
         heroEyebrow:'File manager using Discord as storage',
         heroLead:'Organessônium turns Discord channels into a browsable library: you upload files, organize everything into folders, preview documents, and download items back whenever you need them. The interface is designed to feel familiar, close to a modern file explorer.',
         heroPrimary:'Understand the flow',
@@ -184,7 +213,30 @@ const I18N = {
         previewDocTitle:'Office documents',
         previewDocText:'DOCX, ODT, XLSX, PPTX, and related formats open as internal reading views when their content can be extracted.',
         previewArchiveTitle:'Browsable archives',
-        previewArchiveText:'ZIP files and other compatible archives show their entries before a full download.'
+        previewArchiveText:'ZIP files and other compatible archives show their entries before a full download.',
+        releasesDocumentTitle:'Organessônium | Releases',
+        releasesEyebrow:'Downloads by version',
+        releasesTitle:'Releases and source code',
+        releasesLead:'Choose the Organessônium edition that fits your environment. The home page keeps the quick downloads; this page holds complete packages and source code for each variant.',
+        backToHome:'Back to site',
+        seePackages:'See packages',
+        releaseSummaryTitle:'3 maintained versions',
+        releaseSummaryText:'Java desktop, C# desktop with WebView2, and Flutter mobile, each with separate binaries and source.',
+        releaseGridEyebrow:'Available packages',
+        releaseGridTitle:'Three paths for the same project',
+        releaseGridLead:'Use binaries to install or run directly. Download the matching source code when you want to study, modify, or build a specific version.',
+        releaseJavaTag:'Original desktop',
+        releaseJavaTitle:'Java version',
+        releaseJavaText:'The original Organessônium base, distributed as a JAR to run with Java installed.',
+        releaseJavaDownloads:'Java downloads',
+        releaseCsharpTag:'Windows desktop',
+        releaseCsharpTitle:'Windows version',
+        releaseCsharpText:'Windows edition with a WebView2 interface, available as a portable executable or installer.',
+        releaseCsharpDownloads:'C# and WebView2 downloads',
+        releaseFlutterTag:'Mobile',
+        releaseFlutterTitle:'Flutter version',
+        releaseFlutterText:'Mobile Flutter build for Android, distributed as an APK alongside the mobile variant source code.',
+        releaseFlutterDownloads:'Flutter downloads'
     }
 };
 
@@ -206,9 +258,10 @@ function applySiteTheme(theme) {
 function translatePage(language) {
     const lang = language === 'en' ? 'en' : 'pt-BR';
     const dict = I18N[lang];
+    const page = document.body && document.body.dataset.page;
 
     document.documentElement.lang = lang;
-    document.title = dict.documentTitle;
+    document.title = page === 'releases' ? dict.releasesDocumentTitle : dict.documentTitle;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
