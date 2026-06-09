@@ -816,7 +816,7 @@ h1{
     display:grid;
     grid-template-columns:minmax(300px,410px) minmax(0,1fr);
     gap:28px;
-    align-items:center;
+    align-items:stretch;
 }
 .site-phone-shot{
     min-width:0;
@@ -1024,11 +1024,12 @@ h1{
 }
 .site-mobile-notes{
     align-self:stretch;
+    min-height:100%;
     display:grid;
     grid-template-columns:1fr;
-    grid-template-rows:repeat(3,auto);
-    align-content:space-between;
-    gap:10px;
+    grid-template-rows:repeat(3,minmax(0,1fr));
+    align-content:stretch;
+    gap:14px;
 }
 .site-mobile-notes article{
     position:relative;
@@ -1038,19 +1039,10 @@ h1{
     border:1px solid var(--border);
     border-radius:8px;
     background:var(--surface);
-    min-height:118px;
+    min-height:0;
+    height:100%;
     align-content:center;
-    padding:16px;
-}
-.site-mobile-notes article:not(:last-child)::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-31px;
-    height:1px;
-    background:var(--border);
-    pointer-events:none;
+    padding:18px;
 }
 .site-mobile-notes article > span{
     width:34px;
@@ -1235,7 +1227,10 @@ h1{
     .site-preview-list{align-self:start;align-content:start;grid-template-rows:none;}
     .site-editor-toolbar{justify-content:flex-start;overflow-x:auto;}
     .site-mobile-layout{grid-template-columns:1fr;}
-    .site-mobile-notes{grid-template-columns:repeat(3,minmax(0,1fr));}
+    .site-mobile-notes{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(3,minmax(118px,auto));
+    }
     .release-hero{grid-template-columns:1fr;min-height:auto;padding-top:38px;}
     .release-grid{grid-template-columns:1fr;}
 }
@@ -1312,6 +1307,7 @@ html.site-touch-device .site-editor-layout,
 html.site-touch-device .site-mobile-layout{grid-template-columns:1fr;}
 html.site-touch-device .site-mobile-notes{
     grid-template-columns:1fr;
+    grid-template-rows:repeat(3,minmax(118px,auto));
     align-content:start;
 }
 html.site-touch-device .site-preview-list{align-self:start;align-content:start;grid-template-rows:none;}
