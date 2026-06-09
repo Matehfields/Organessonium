@@ -310,12 +310,6 @@ function systemLanguage() {
     return 'pt-BR';
 }
 
-function syncInputMode() {
-    const isTouch = (navigator.maxTouchPoints || 0) > 0
-        || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    document.documentElement.classList.toggle('site-touch-device', Boolean(isTouch));
-}
-
 function applySiteTheme(theme) {
     const safeTheme = theme === 'light' ? 'light' : 'dark';
     document.documentElement.dataset.theme = safeTheme;
@@ -366,7 +360,6 @@ function translatePage(language) {
 function initSite() {
     if (typeof initIcons === 'function') initIcons();
 
-    syncInputMode();
     applySiteTheme(systemTheme());
     translatePage(systemLanguage());
 
@@ -392,13 +385,6 @@ function initSite() {
             themeQuery.addEventListener('change', () => applySiteTheme(systemTheme()));
         } else if (typeof themeQuery.addListener === 'function') {
             themeQuery.addListener(() => applySiteTheme(systemTheme()));
-        }
-
-        const touchQuery = window.matchMedia('(pointer: coarse)');
-        if (typeof touchQuery.addEventListener === 'function') {
-            touchQuery.addEventListener('change', syncInputMode);
-        } else if (typeof touchQuery.addListener === 'function') {
-            touchQuery.addListener(syncInputMode);
         }
     }
 
