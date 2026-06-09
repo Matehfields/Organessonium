@@ -257,7 +257,9 @@ h1{
 .site-editor-preview,
 .site-editor-preview *,
 .site-preview-list,
-.site-preview-list *{
+.site-preview-list *,
+.site-phone-shot,
+.site-phone-shot *{
     box-sizing:border-box;
 }
 .site-product-shot :where(article,div,span,small,strong,footer,button),

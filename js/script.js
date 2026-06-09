@@ -58,7 +58,7 @@ const I18N = {
         featurePdfTitle:'Prévia de PDFs',
         featurePdfText:'PDFs são renderizados em páginas, com carregamento progressivo e camada de texto selecionável quando disponível.',
         featureMobileTitle:'Versão mobile Flutter',
-        featureMobileText:'A versão Android fica no projeto organessonium-flutter, com interface pensada para toque e distribuição por APK.',
+        featureMobileText:'A versão Android tem interface pensada para toque e distribuição por APK.',
         featureMarkdownTitle:'Editor Markdown integrado',
         featureMarkdownText:'Arquivos <code>.md</code> podem ser abertos em uma área própria, com modo visual, Markdown puro, toolbar e salvamento automático.',
         featureSearchTitle:'Busca e ordenação',
@@ -73,7 +73,7 @@ const I18N = {
         featureEcosystemText:'Desktop e Android seguem a mesma biblioteca de arquivos, com versões separadas para cada ambiente.',
         mobileEyebrow:'Versão mobile',
         mobileTitle:'Interface Android feita em Flutter',
-        mobileLead:'A versão mobile fica em organessonium-flutter e faz parte do mesmo ecossistema do desktop: buscar, abrir arquivos, enviar itens, acompanhar transferências e navegar pela biblioteca com interface própria para toque.',
+        mobileLead:'A versão mobile faz parte do mesmo ecossistema do desktop: buscar, abrir arquivos, enviar itens, acompanhar transferências e navegar pela biblioteca com interface própria para toque.',
         mobileMockLabel:'Prévia da interface mobile do Organessônium',
         mobileSearch:'Pesquisar no Organessônium',
         mobileControlsLabel:'Modos de visualização',
@@ -140,7 +140,7 @@ const I18N = {
         releaseCsharpDownloads:'Downloads C# e WebView2',
         releaseFlutterTag:'Android',
         releaseFlutterTitle:'Mobile Flutter',
-        releaseFlutterText:'APK Android gerado a partir do projeto organessonium-flutter.',
+        releaseFlutterText:'APK Android para instalação quando houver build disponível.',
         releaseFlutterDownloads:'Downloads Flutter'
     },
     en: {
@@ -200,7 +200,7 @@ const I18N = {
         featurePdfTitle:'PDF previews',
         featurePdfText:'PDFs are rendered as pages, with progressive loading and selectable text layer when available.',
         featureMobileTitle:'Flutter mobile version',
-        featureMobileText:'The Android version lives in the organessonium-flutter project, with a touch-first interface and APK distribution.',
+        featureMobileText:'The Android version has a touch-first interface and APK distribution.',
         featureMarkdownTitle:'Integrated Markdown editor',
         featureMarkdownText:'<code>.md</code> files can open in their own area, with visual mode, raw Markdown, a toolbar, and autosave.',
         featureSearchTitle:'Search and sorting',
@@ -215,7 +215,7 @@ const I18N = {
         featureEcosystemText:'Desktop and Android follow the same file-library idea, with separate builds for each environment.',
         mobileEyebrow:'Mobile version',
         mobileTitle:'Android interface built in Flutter',
-        mobileLead:'The mobile version lives in organessonium-flutter and is part of the same desktop ecosystem: search, open files, upload items, track transfers, and browse the library with a touch-first interface.',
+        mobileLead:'The mobile version is part of the same desktop ecosystem: search, open files, upload items, track transfers, and browse the library with a touch-first interface.',
         mobileMockLabel:'Preview of the Organessônium mobile interface',
         mobileSearch:'Search Organessônium',
         mobileControlsLabel:'View modes',
@@ -282,7 +282,7 @@ const I18N = {
         releaseCsharpDownloads:'C# and WebView2 downloads',
         releaseFlutterTag:'Android',
         releaseFlutterTitle:'Flutter mobile',
-        releaseFlutterText:'Android APK generated from the organessonium-flutter project.',
+        releaseFlutterText:'Android APK for installation when a build is available.',
         releaseFlutterDownloads:'Flutter downloads'
     }
 };
