@@ -37,15 +37,25 @@
     --shadow:rgba(60,64,67,.18);
 }
 
-html{scroll-behavior:smooth;background:var(--bg);}
+html{
+    display:block;
+    scroll-behavior:smooth;
+    background:var(--bg);
+    overflow-x:hidden;
+}
 body{
+    display:block;
     min-height:100vh;
     background:var(--bg);
     color:var(--text-primary);
     font-family:'Segoe UI',system-ui,sans-serif;
     font-size:14px;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    overflow-y:auto;
+    user-select:auto;
 }
+[hidden]{display:none!important;}
 button,a{font:inherit;}
 a{color:inherit;text-decoration:none;}
 code{
@@ -251,6 +261,7 @@ h1{
     font-family:'Segoe UI',system-ui,sans-serif;
     letter-spacing:0;
 }
+/* Site-only app mockup. Keep these classes prefixed so the public site does not depend on app CSS. */
 .site-product-shot{
     position:relative;
     min-height:500px;
@@ -964,6 +975,19 @@ h1{
     .release-grid{grid-template-columns:1fr;}
 }
 
+@media (hover:none) and (pointer:coarse){
+    .site-nav{display:none;}
+    .hero-section{
+        min-height:auto;
+        grid-template-columns:1fr;
+        padding-top:34px;
+    }
+    .site-product-shot{min-height:500px;}
+    .site-editor-layout{grid-template-columns:1fr;}
+    .site-preview-list{align-self:start;align-content:start;grid-template-rows:none;}
+    .site-editor-toolbar{justify-content:flex-start;overflow-x:auto;}
+}
+
 @media (max-width:700px){
     .site-topbar{
         flex-wrap:wrap;
@@ -978,31 +1002,57 @@ h1{
         padding:26px 0 22px;
         gap:24px;
     }
-    .site-product-shot{min-height:326px;}
+    .site-product-shot{min-height:560px;}
     .site-mock-topbar{
-        height:50px;
-        grid-template-columns:1fr auto;
-        padding:0 10px;
+        height:auto;
+        grid-template-columns:minmax(0,1fr) auto;
+        grid-template-areas:
+            "brand actions"
+            "search search";
+        gap:8px;
+        padding:8px 10px;
     }
-    .site-mock-brand span:not(.logo-omega),.site-mock-search,.site-mock-actions,.site-folder-chip{display:none;}
-    .site-mock-body{min-height:246px;padding:10px 10px 86px;}
+    .site-mock-brand{grid-area:brand;}
+    .site-mock-brand span:not(.logo-omega){display:block;}
+    .site-mock-search{grid-area:search;height:32px;padding:0 10px;}
+    .site-mock-actions{grid-area:actions;}
+    .site-mock-actions > span{width:30px;height:30px;}
+    .site-folder-chip{height:44px;margin-bottom:10px;}
+    .site-mock-body{min-height:474px;padding:10px 10px 112px;}
     .site-selection-box{
         left:20px;
-        top:74px;
+        top:154px;
         width:calc(100% - 72px);
-        height:86px;
+        height:128px;
     }
     .site-file-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .site-file-tile{height:112px;}
-    .site-file-tile:nth-child(n+3){display:none;}
+    .site-file-tile{height:128px;}
+    .site-file-tile:nth-child(n+3){display:flex;}
     .site-mock-status{font-size:10px;}
-    .site-mock-status span:last-child{display:none;}
+    .site-mock-status span:last-child{display:inline;}
     .site-selection-bar{
         grid-template-columns:minmax(0,1fr) 28px;
+        grid-template-areas:
+            "count close"
+            "actions actions";
         width:calc(100% - 20px);
         bottom:12px;
+        row-gap:8px;
     }
-    .site-selection-actions{display:none;}
+    .site-selection-count{grid-area:count;}
+    .site-selection-actions{
+        grid-area:actions;
+        display:flex;
+        justify-content:flex-start;
+        overflow:hidden;
+    }
+    .site-selection-actions button{
+        height:28px;
+        gap:4px;
+        padding:0 8px;
+        font-size:11px;
+    }
+    .site-selection-close{grid-area:close;}
     .content-band{padding:46px 0;}
     .hero-section + .content-band{padding-top:28px;}
     .section-heading h2{font-size:24px;}
