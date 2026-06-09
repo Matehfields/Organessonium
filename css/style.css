@@ -1023,18 +1023,34 @@ h1{
     font-weight:800;
 }
 .site-mobile-notes{
+    align-self:stretch;
     display:grid;
     grid-template-columns:1fr;
+    grid-template-rows:repeat(3,auto);
+    align-content:space-between;
     gap:10px;
 }
 .site-mobile-notes article{
+    position:relative;
     display:grid;
     grid-template-columns:34px minmax(0,1fr);
     gap:12px;
     border:1px solid var(--border);
     border-radius:8px;
     background:var(--surface);
+    min-height:118px;
+    align-content:center;
     padding:16px;
+}
+.site-mobile-notes article:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-31px;
+    height:1px;
+    background:var(--border);
+    pointer-events:none;
 }
 .site-mobile-notes article > span{
     width:34px;
@@ -1239,13 +1255,31 @@ h1{
 }
 
 html.site-touch-device .site-nav{display:none;}
+html.site-touch-device .site-topbar{
+    flex-wrap:wrap;
+    gap:9px;
+    padding:10px 16px;
+}
+html.site-touch-device .site-brand{flex:1;}
+html.site-touch-device .language-toggle{order:3;}
+html.site-touch-device h1{font-size:40px;}
+html.site-touch-device .hero-lede{font-size:15px;}
 html.site-touch-device .hero-section{
+    width:min(430px,calc(100% - 32px));
     min-height:auto;
     grid-template-columns:1fr;
-    padding-top:34px;
+    gap:24px;
+    padding:26px 0 22px;
 }
+html.site-touch-device .content-band,
+html.site-touch-device .site-footer{width:min(430px,calc(100% - 32px));}
+html.site-touch-device .hero-section + .content-band{padding-top:28px;}
+html.site-touch-device .content-band{padding:46px 0;}
+html.site-touch-device .section-heading h2{font-size:24px;}
+html.site-touch-device .flow-grid,
+html.site-touch-device .feature-grid{grid-template-columns:1fr;}
 html.site-touch-device .site-product-shot{
-    width:min(100%,720px);
+    width:100%;
     min-height:560px;
     margin:0 auto;
 }
@@ -1276,6 +1310,10 @@ html.site-touch-device .site-file-tile{height:128px;}
 html.site-touch-device .site-file-tile:nth-child(n+3){display:flex;}
 html.site-touch-device .site-editor-layout,
 html.site-touch-device .site-mobile-layout{grid-template-columns:1fr;}
+html.site-touch-device .site-mobile-notes{
+    grid-template-columns:1fr;
+    align-content:start;
+}
 html.site-touch-device .site-preview-list{align-self:start;align-content:start;grid-template-rows:none;}
 html.site-touch-device .site-editor-toolbar{justify-content:flex-start;overflow-x:auto;}
 html.site-touch-device .site-selection-bar{
