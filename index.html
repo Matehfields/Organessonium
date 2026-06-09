@@ -225,6 +225,21 @@
                 <h3 data-i18n="featureLanguageTitle">Português, inglês e ajustes finos</h3>
                 <p data-i18n="featureLanguageText">A interface tem versões em português e inglês, tema claro/escuro, tamanho de cards, prévias, animações e desempenho configuráveis.</p>
             </article>
+            <article class="feature-card">
+                <span class="feature-icon" data-icon="inventory_2" data-size="24"></span>
+                <h3 data-i18n="featureCacheTitle">Cache local no PC</h3>
+                <p data-i18n="featureCacheText">A versão desktop usa SQLite local para guardar configurações e dados auxiliares sem depender da rede para tudo.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon coral" data-icon="image" data-size="24"></span>
+                <h3 data-i18n="featureImagePreviewTitle">Prévia de imagens</h3>
+                <p data-i18n="featureImagePreviewText">Imagens podem ser abertas no app com visualização rápida, útil para conferir arquivos antes de baixar ou mover.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon green" data-icon="devices" data-size="24"></span>
+                <h3 data-i18n="featureEcosystemTitle">Ecossistema multiplataforma</h3>
+                <p data-i18n="featureEcosystemText">Desktop e Android seguem a mesma biblioteca de arquivos, com versões separadas para cada ambiente.</p>
+            </article>
         </div>
     </section>
 
@@ -244,19 +259,35 @@
                     <div class="site-phone-screen">
                         <div class="site-phone-status">
                             <span>13:54</span>
-                            <span>Wi-Fi 84%</span>
+                            <span class="site-phone-system">
+                                <span data-icon="wifi" data-size="14"></span>
+                                <span class="site-phone-battery">
+                                    <span>84</span>
+                                    <span data-icon="battery_full" data-size="18"></span>
+                                </span>
+                            </span>
                         </div>
                         <div class="site-phone-searchbar">
-                            <span class="site-phone-menu" data-icon="view_list" data-size="20"></span>
+                            <span class="site-phone-menu" data-icon="menu" data-size="20"></span>
                             <div>
                                 <span data-icon="search" data-size="18"></span>
                                 <span data-i18n="mobileSearch">Pesquisar no Organessônium</span>
                             </div>
                             <span class="logo-omega">Ω</span>
                         </div>
-                        <div class="site-phone-heading">
-                            <span data-i18n="mobileFilesTitle">Arquivos</span>
-                            <small data-i18n="mobileRootLabel">Raiz</small>
+                        <div class="site-phone-controls" aria-label="Modos de visualizacao" data-i18n-attr="aria-label:mobileControlsLabel">
+                            <button class="active" type="button">
+                                <span data-icon="grid_view" data-size="18"></span>
+                                <span data-i18n="mobileViewGrid">Grade</span>
+                            </button>
+                            <button type="button">
+                                <span data-icon="view_list" data-size="18"></span>
+                                <span data-i18n="mobileViewList">Lista</span>
+                            </button>
+                            <button type="button">
+                                <span data-icon="sort" data-size="18"></span>
+                                <span data-i18n="mobileSort">Ordenar</span>
+                            </button>
                         </div>
                         <div class="site-phone-grid">
                             <article class="site-phone-card site-phone-folder">
@@ -301,8 +332,8 @@
                         </div>
                         <div class="site-phone-nav">
                             <span class="active"><span data-icon="folder" data-size="20"></span><small data-i18n="mobileNavFiles">Arquivos</small></span>
-                            <span><span data-icon="refresh" data-size="20"></span><small data-i18n="mobileNavRecent">Recentes</small></span>
-                            <span><span data-icon="drive_file_move" data-size="20"></span><small data-i18n="mobileNavTransfers">Transferências</small></span>
+                            <span><span data-icon="schedule" data-size="20"></span><small data-i18n="mobileNavRecent">Recentes</small></span>
+                            <span><span data-icon="swap_vert_circle" data-size="20"></span><small data-i18n="mobileNavTransfers">Transferências</small></span>
                         </div>
                     </div>
                 </div>

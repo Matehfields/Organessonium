@@ -1,8 +1,5 @@
 'use strict';
 
-const SITE_THEME_KEY = 'organessonium.site.theme';
-const SITE_LANGUAGE_KEY = 'organessonium.site.language';
-
 const I18N = {
     'pt-BR': {
         documentTitle:'Organessônium | Site oficial',
@@ -68,13 +65,21 @@ const I18N = {
         featureSearchText:'Pesquise por nome e alterne a listagem por nome, tamanho ou data. A interface mantém modos de grade e lista.',
         featureLanguageTitle:'Português, inglês e ajustes finos',
         featureLanguageText:'A interface tem versões em português e inglês, tema claro/escuro, tamanho de cards, prévias, animações e desempenho configuráveis.',
+        featureCacheTitle:'Cache local no PC',
+        featureCacheText:'A versão desktop usa SQLite local para guardar configurações e dados auxiliares sem depender da rede para tudo.',
+        featureImagePreviewTitle:'Prévia de imagens',
+        featureImagePreviewText:'Imagens podem ser abertas no app com visualização rápida, útil para conferir arquivos antes de baixar ou mover.',
+        featureEcosystemTitle:'Ecossistema multiplataforma',
+        featureEcosystemText:'Desktop e Android seguem a mesma biblioteca de arquivos, com versões separadas para cada ambiente.',
         mobileEyebrow:'Versão mobile',
         mobileTitle:'Interface Android feita em Flutter',
-        mobileLead:'A versão mobile fica em organessonium-flutter e segue o mesmo conceito do desktop: buscar, abrir arquivos, enviar itens, acompanhar transferências e navegar pela biblioteca com uma interface própria para toque.',
+        mobileLead:'A versão mobile fica em organessonium-flutter e faz parte do mesmo ecossistema do desktop: buscar, abrir arquivos, enviar itens, acompanhar transferências e navegar pela biblioteca com interface própria para toque.',
         mobileMockLabel:'Prévia da interface mobile do Organessônium',
         mobileSearch:'Pesquisar no Organessônium',
-        mobileFilesTitle:'Arquivos',
-        mobileRootLabel:'Raiz',
+        mobileControlsLabel:'Modos de visualização',
+        mobileViewGrid:'Grade',
+        mobileViewList:'Lista',
+        mobileSort:'Ordenar',
         mobileNavFiles:'Arquivos',
         mobileNavRecent:'Recentes',
         mobileNavTransfers:'Transferências',
@@ -202,13 +207,21 @@ const I18N = {
         featureSearchText:'Search by name and sort the listing by name, size, or date. The interface keeps both grid and list modes.',
         featureLanguageTitle:'Portuguese, English, and fine tuning',
         featureLanguageText:'The interface has Portuguese and English versions, light/dark theme, card sizes, previews, animations, and configurable performance settings.',
+        featureCacheTitle:'Local cache on PC',
+        featureCacheText:'The desktop version uses local SQLite storage for settings and helper data, so not everything depends on the network.',
+        featureImagePreviewTitle:'Image previews',
+        featureImagePreviewText:'Images can open inside the app with quick preview, useful before downloading or moving files.',
+        featureEcosystemTitle:'Multiplatform ecosystem',
+        featureEcosystemText:'Desktop and Android follow the same file-library idea, with separate builds for each environment.',
         mobileEyebrow:'Mobile version',
         mobileTitle:'Android interface built in Flutter',
-        mobileLead:'The mobile version lives in organessonium-flutter and follows the same desktop idea: search, open files, upload items, track transfers, and browse the library with a touch-first interface.',
+        mobileLead:'The mobile version lives in organessonium-flutter and is part of the same desktop ecosystem: search, open files, upload items, track transfers, and browse the library with a touch-first interface.',
         mobileMockLabel:'Preview of the Organessônium mobile interface',
         mobileSearch:'Search Organessônium',
-        mobileFilesTitle:'Files',
-        mobileRootLabel:'Root',
+        mobileControlsLabel:'View modes',
+        mobileViewGrid:'Grid',
+        mobileViewList:'List',
+        mobileSort:'Sort',
         mobileNavFiles:'Files',
         mobileNavRecent:'Recent',
         mobileNavTransfers:'Transfers',
@@ -279,6 +292,30 @@ function iconMarkup(name, size) {
     return '';
 }
 
+function systemTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function systemLanguage() {
+    const languages = Array.isArray(navigator.languages) && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language || 'pt-BR'];
+    if (languages.some(language => String(language || '').toLowerCase().startsWith('pt'))) {
+        return 'pt-BR';
+    }
+    for (const language of languages) {
+        const normalized = String(language || '').toLowerCase();
+        if (normalized.startsWith('en')) return 'en';
+    }
+    return 'pt-BR';
+}
+
+function syncInputMode() {
+    const isTouch = (navigator.maxTouchPoints || 0) > 0
+        || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+    document.documentElement.classList.toggle('site-touch-device', Boolean(isTouch));
+}
+
 function applySiteTheme(theme) {
     const safeTheme = theme === 'light' ? 'light' : 'dark';
     document.documentElement.dataset.theme = safeTheme;
@@ -329,22 +366,15 @@ function translatePage(language) {
 function initSite() {
     if (typeof initIcons === 'function') initIcons();
 
-    let savedTheme = 'dark';
-    let savedLanguage = 'pt-BR';
-    try {
-        savedTheme = localStorage.getItem(SITE_THEME_KEY) || 'dark';
-        savedLanguage = localStorage.getItem(SITE_LANGUAGE_KEY) || 'pt-BR';
-    } catch (_) {}
-
-    applySiteTheme(savedTheme);
-    translatePage(savedLanguage);
+    syncInputMode();
+    applySiteTheme(systemTheme());
+    translatePage(systemLanguage());
 
     const themeButton = document.getElementById('theme-toggle');
     if (themeButton) {
         themeButton.addEventListener('click', () => {
             const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
             applySiteTheme(nextTheme);
-            try { localStorage.setItem(SITE_THEME_KEY, nextTheme); } catch (_) {}
         });
     }
 
@@ -353,9 +383,26 @@ function initSite() {
         languageButton.addEventListener('click', () => {
             const nextLanguage = document.documentElement.lang === 'en' ? 'pt-BR' : 'en';
             translatePage(nextLanguage);
-            try { localStorage.setItem(SITE_LANGUAGE_KEY, nextLanguage); } catch (_) {}
         });
     }
+
+    if (window.matchMedia) {
+        const themeQuery = window.matchMedia('(prefers-color-scheme: light)');
+        if (typeof themeQuery.addEventListener === 'function') {
+            themeQuery.addEventListener('change', () => applySiteTheme(systemTheme()));
+        } else if (typeof themeQuery.addListener === 'function') {
+            themeQuery.addListener(() => applySiteTheme(systemTheme()));
+        }
+
+        const touchQuery = window.matchMedia('(pointer: coarse)');
+        if (typeof touchQuery.addEventListener === 'function') {
+            touchQuery.addEventListener('change', syncInputMode);
+        } else if (typeof touchQuery.addListener === 'function') {
+            touchQuery.addListener(syncInputMode);
+        }
+    }
+
+    window.addEventListener('languagechange', () => translatePage(systemLanguage()));
 }
 
 document.addEventListener('DOMContentLoaded', initSite);

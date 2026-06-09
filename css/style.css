@@ -91,15 +91,15 @@ code{
 }
 .logo-omega{
     width:24px;
-    height:24px;
-    flex:0 0 24px;
-    display:inline-block;
+    min-width:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     color:var(--text-secondary);
-    background:currentColor;
-    -webkit-mask:url('../images/logo.png') center/contain no-repeat;
-    mask:url('../images/logo.png') center/contain no-repeat;
-    font-size:0;
-    line-height:0;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:24px;
+    font-weight:900;
+    line-height:1;
 }
 .site-nav{
     display:flex;
@@ -265,6 +265,13 @@ h1{
 .site-preview-list :where(article,div,span,h3,p){
     font-family:'Segoe UI',system-ui,sans-serif;
     letter-spacing:0;
+}
+.site-product-shot .logo-omega,
+.site-editor-preview .logo-omega,
+.site-phone-shot .logo-omega{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:900;
+    line-height:1;
 }
 /* Site-only app mockup. Keep these classes prefixed so the public site does not depend on app CSS. */
 .site-product-shot{
@@ -594,7 +601,7 @@ h1{
     font-size:13px;
     font-weight:800;
 }
-.site-editor-brand .logo-omega{width:21px;height:21px;flex-basis:21px;}
+.site-editor-brand .logo-omega{width:21px;min-width:21px;font-size:21px;}
 .site-editor-search{
     min-width:0;
     height:34px;
@@ -826,7 +833,7 @@ h1{
 }
 .site-phone-screen{
     position:relative;
-    min-height:640px;
+    min-height:700px;
     border:1px solid var(--border);
     border-radius:22px;
     background:var(--bg);
@@ -842,10 +849,25 @@ h1{
     font-weight:700;
     padding:0 16px;
 }
+.site-phone-system{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.site-phone-battery{
+    display:flex;
+    align-items:center;
+    gap:3px;
+}
+.site-phone-battery span:first-child{
+    color:var(--text-secondary);
+    font-size:10px;
+    font-weight:800;
+}
 .site-phone-searchbar{
     height:56px;
     display:grid;
-    grid-template-columns:34px minmax(0,1fr) 28px;
+    grid-template-columns:34px minmax(0,1fr) 34px;
     align-items:center;
     gap:9px;
     border:1px solid var(--border);
@@ -876,23 +898,36 @@ h1{
     align-items:center;
     justify-content:center;
 }
-.site-phone-searchbar .logo-omega{width:24px;height:24px;color:var(--text-muted);}
-.site-phone-heading{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    padding:0 16px 10px;
-}
-.site-phone-heading span{
-    color:var(--text-primary);
-    font-size:20px;
-    font-weight:800;
-}
-.site-phone-heading small{
+.site-phone-searchbar .logo-omega{
+    width:34px;
+    min-width:34px;
     color:var(--text-muted);
-    font-size:11px;
+    font-size:34px;
+}
+.site-phone-controls{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:0 12px 14px;
+}
+.site-phone-controls button{
+    min-width:0;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--surface);
+    color:var(--text-secondary);
+    font-size:12px;
     font-weight:700;
-    text-transform:uppercase;
+    padding:0 12px;
+}
+.site-phone-controls button.active{
+    border-color:rgba(74,144,217,.45);
+    color:var(--accent);
 }
 .site-phone-grid{
     display:grid;
@@ -1203,6 +1238,65 @@ h1{
     .site-mobile-layout{grid-template-columns:1fr;}
 }
 
+html.site-touch-device .site-nav{display:none;}
+html.site-touch-device .hero-section{
+    min-height:auto;
+    grid-template-columns:1fr;
+    padding-top:34px;
+}
+html.site-touch-device .site-product-shot{
+    width:min(100%,720px);
+    min-height:560px;
+    margin:0 auto;
+}
+html.site-touch-device .site-mock-topbar{
+    height:auto;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:
+        "brand actions"
+        "search search";
+    gap:8px;
+    padding:8px 10px;
+}
+html.site-touch-device .site-mock-brand{grid-area:brand;}
+html.site-touch-device .site-mock-brand span:not(.logo-omega){display:block;}
+html.site-touch-device .site-mock-search{grid-area:search;height:32px;padding:0 10px;}
+html.site-touch-device .site-mock-actions{grid-area:actions;}
+html.site-touch-device .site-mock-actions > span{width:30px;height:30px;}
+html.site-touch-device .site-folder-chip{height:44px;margin-bottom:10px;}
+html.site-touch-device .site-mock-body{min-height:474px;padding:10px 10px 90px;}
+html.site-touch-device .site-selection-box{
+    left:20px;
+    top:154px;
+    width:calc(100% - 72px);
+    height:128px;
+}
+html.site-touch-device .site-file-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+html.site-touch-device .site-file-tile{height:128px;}
+html.site-touch-device .site-file-tile:nth-child(n+3){display:flex;}
+html.site-touch-device .site-editor-layout,
+html.site-touch-device .site-mobile-layout{grid-template-columns:1fr;}
+html.site-touch-device .site-preview-list{align-self:start;align-content:start;grid-template-rows:none;}
+html.site-touch-device .site-editor-toolbar{justify-content:flex-start;overflow-x:auto;}
+html.site-touch-device .site-selection-bar{
+    grid-template-columns:minmax(88px,1fr) auto 28px;
+    grid-template-areas:"count actions close";
+    width:min(360px,calc(100% - 20px));
+    min-height:48px;
+    bottom:12px;
+    row-gap:0;
+}
+html.site-touch-device .site-selection-count{grid-area:count;}
+html.site-touch-device .site-selection-actions{grid-area:actions;display:flex;justify-content:flex-end;overflow:hidden;}
+html.site-touch-device .site-selection-actions button{
+    width:32px;
+    height:30px;
+    gap:0;
+    padding:0;
+}
+html.site-touch-device .site-selection-actions button span:last-child{display:none;}
+html.site-touch-device .site-selection-close{grid-area:close;}
+
 @media (max-width:700px){
     .site-topbar{
         flex-wrap:wrap;
@@ -1246,27 +1340,27 @@ h1{
     .site-mock-status{font-size:10px;}
     .site-mock-status span:last-child{display:inline;}
     .site-selection-bar{
-        grid-template-columns:minmax(0,1fr) 28px;
-        grid-template-areas:
-            "count close"
-            "actions actions";
-        width:calc(100% - 20px);
+        grid-template-columns:minmax(88px,1fr) auto 28px;
+        grid-template-areas:"count actions close";
+        width:min(360px,calc(100% - 20px));
+        min-height:48px;
         bottom:12px;
-        row-gap:8px;
+        row-gap:0;
     }
     .site-selection-count{grid-area:count;}
     .site-selection-actions{
         grid-area:actions;
         display:flex;
-        justify-content:flex-start;
+        justify-content:flex-end;
         overflow:hidden;
     }
     .site-selection-actions button{
-        height:28px;
-        gap:4px;
-        padding:0 8px;
-        font-size:11px;
+        width:32px;
+        height:30px;
+        gap:0;
+        padding:0;
     }
+    .site-selection-actions button span:last-child{display:none;}
     .site-selection-close{grid-area:close;}
     .content-band{padding:46px 0;}
     .hero-section + .content-band{padding-top:28px;}
@@ -1293,7 +1387,7 @@ h1{
         padding:8px;
     }
     .site-phone-screen{
-        min-height:594px;
+        min-height:650px;
         border-radius:18px;
     }
     .site-phone-grid{
