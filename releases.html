@@ -16,6 +16,7 @@
     <nav class="site-nav" aria-label="Seções do site" data-i18n-attr="aria-label:navLabel">
         <a href="index.html#funcionamento" data-i18n="navFlow">Funcionamento</a>
         <a href="index.html#recursos" data-i18n="navFeatures">Recursos</a>
+        <a href="index.html#mobile" data-i18n="navMobile">Mobile</a>
         <a href="index.html#editor" data-i18n="navEditor">Editor e prévias</a>
         <a class="active" href="releases.html" data-i18n="navReleases">Releases</a>
     </nav>
@@ -30,10 +31,10 @@
 <main>
     <section class="release-hero" aria-labelledby="release-title">
         <div class="release-hero-copy">
-            <span class="eyebrow" data-i18n="releasesEyebrow">Downloads por versão</span>
-            <h1 id="release-title" data-i18n="releasesTitle">Releases e código fonte</h1>
+            <span class="eyebrow" data-i18n="releasesEyebrow">Arquivos de release</span>
+            <h1 id="release-title" data-i18n="releasesTitle">Downloads e código fonte</h1>
             <p data-i18n="releasesLead">
-                Escolha a edição do Organessônium que combina com seu ambiente. A página principal fica com os downloads rápidos; aqui ficam os pacotes completos e os códigos fonte de cada variante.
+                Baixe a variante certa do Organessônium. Java é a base original, Windows é a versão desktop atual e Flutter é a versão Android.
             </p>
             <div class="hero-actions">
                 <a class="btn-primary" href="index.html#inicio">
@@ -48,16 +49,16 @@
         </div>
         <div class="release-summary-card">
             <span class="release-summary-icon" data-icon="inventory_2" data-size="30"></span>
-            <strong data-i18n="releaseSummaryTitle">3 versões mantidas</strong>
-            <p data-i18n="releaseSummaryText">Desktop Java, desktop C# com WebView2 e mobile Flutter, cada uma com binários e fonte separados.</p>
+            <strong data-i18n="releaseSummaryTitle">3 pacotes</strong>
+            <p data-i18n="releaseSummaryText">Java, Windows e Android. Cada variante tem binário e código fonte separados quando disponível.</p>
         </div>
     </section>
 
     <section id="release-grid" class="content-band release-band" aria-labelledby="release-grid-title">
         <div class="section-heading">
             <span class="eyebrow" data-i18n="releaseGridEyebrow">Pacotes disponíveis</span>
-            <h2 id="release-grid-title" data-i18n="releaseGridTitle">Três caminhos para o mesmo projeto</h2>
-            <p data-i18n="releaseGridLead">Use os binários para instalar ou executar direto. Baixe o código fonte correspondente quando quiser estudar, modificar ou compilar uma versão específica.</p>
+            <h2 id="release-grid-title" data-i18n="releaseGridTitle">Escolha a versão</h2>
+            <p data-i18n="releaseGridLead">Use o pacote pronto para testar ou instalar. O código fonte fica separado para quem quer compilar ou modificar.</p>
         </div>
 
         <div class="release-grid">
@@ -65,11 +66,11 @@
                 <div class="release-card-head">
                     <span class="release-card-icon" data-icon="coffee" data-size="27"></span>
                     <div>
-                        <span class="release-tag" data-i18n="releaseJavaTag">Desktop original</span>
-                        <h3 data-i18n="releaseJavaTitle">Versão Java</h3>
+                        <span class="release-tag" data-i18n="releaseJavaTag">Java</span>
+                        <h3 data-i18n="releaseJavaTitle">Desktop Java</h3>
                     </div>
                 </div>
-                <p data-i18n="releaseJavaText">A base original do Organessônium, distribuída em JAR para rodar com Java instalado.</p>
+                <p data-i18n="releaseJavaText">JAR da versão original. Requer Java instalado.</p>
                 <div class="release-download-list" aria-label="Downloads Java" data-i18n-attr="aria-label:releaseJavaDownloads">
                     <a href="https://github.com/Matehfields/Organessonium/releases/latest/download/Organessonium.jar" download>
                         <span data-icon="download" data-size="16"></span>
@@ -86,11 +87,11 @@
                 <div class="release-card-head">
                     <span class="release-card-icon blue" data-icon="desktop_windows" data-size="27"></span>
                     <div>
-                        <span class="release-tag" data-i18n="releaseCsharpTag">Desktop Windows</span>
-                        <h3 data-i18n="releaseCsharpTitle">Versão para Windows</h3>
+                        <span class="release-tag" data-i18n="releaseCsharpTag">Windows</span>
+                        <h3 data-i18n="releaseCsharpTitle">Desktop Windows</h3>
                     </div>
                 </div>
-                <p data-i18n="releaseCsharpText">Edição para Windows com interface em WebView2, disponível como executável portátil ou instalador.</p>
+                <p data-i18n="releaseCsharpText">Executável para Windows com WebView2. Pode rodar portátil ou via instalador.</p>
                 <div class="release-download-list" aria-label="Downloads C# e WebView2" data-i18n-attr="aria-label:releaseCsharpDownloads">
                     <a href="https://github.com/Matehfields/Organessonium/releases/latest/download/Organessonium.exe" download>
                         <span data-icon="download" data-size="16"></span>
@@ -111,11 +112,11 @@
                 <div class="release-card-head">
                     <span class="release-card-icon green" data-icon="android" data-size="27"></span>
                     <div>
-                        <span class="release-tag" data-i18n="releaseFlutterTag">Mobile</span>
-                        <h3 data-i18n="releaseFlutterTitle">Versão Flutter</h3>
+                        <span class="release-tag" data-i18n="releaseFlutterTag">Android</span>
+                        <h3 data-i18n="releaseFlutterTitle">Mobile Flutter</h3>
                     </div>
                 </div>
-                <p data-i18n="releaseFlutterText">Construção mobile em Flutter para Android, distribuída em APK junto do código fonte da variante mobile.</p>
+                <p data-i18n="releaseFlutterText">APK Android gerado a partir do projeto organessonium-flutter.</p>
                 <div class="release-download-list" aria-label="Downloads Flutter" data-i18n-attr="aria-label:releaseFlutterDownloads">
                     <a href="https://github.com/Matehfields/Organessonium/releases/latest/download/Organessonium.apk" download>
                         <span data-icon="android" data-size="16"></span>

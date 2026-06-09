@@ -16,6 +16,7 @@
     <nav class="site-nav" aria-label="Seções do site" data-i18n-attr="aria-label:navLabel">
         <a href="#funcionamento" data-i18n="navFlow">Funcionamento</a>
         <a href="#recursos" data-i18n="navFeatures">Recursos</a>
+        <a href="#mobile" data-i18n="navMobile">Mobile</a>
         <a href="#editor" data-i18n="navEditor">Editor e prévias</a>
         <a href="releases.html" data-i18n="navReleases">Releases</a>
     </nav>
@@ -224,6 +225,111 @@
                 <h3 data-i18n="featureLanguageTitle">Português, inglês e ajustes finos</h3>
                 <p data-i18n="featureLanguageText">A interface tem versões em português e inglês, tema claro/escuro, tamanho de cards, prévias, animações e desempenho configuráveis.</p>
             </article>
+        </div>
+    </section>
+
+    <section id="mobile" class="content-band mobile-band" aria-labelledby="mobile-title">
+        <div class="section-heading">
+            <span class="eyebrow" data-i18n="mobileEyebrow">Versão mobile</span>
+            <h2 id="mobile-title" data-i18n="mobileTitle">Interface Android feita em Flutter</h2>
+            <p data-i18n="mobileLead">
+                A versão mobile fica em organessonium-flutter e segue o mesmo conceito do desktop: buscar, abrir arquivos,
+                enviar itens, acompanhar transferências e navegar pela biblioteca com uma interface própria para toque.
+            </p>
+        </div>
+
+        <div class="site-mobile-layout">
+            <div class="site-phone-shot" aria-label="Prévia da interface mobile do Organessônium" data-i18n-attr="aria-label:mobileMockLabel">
+                <div class="site-phone-device">
+                    <div class="site-phone-screen">
+                        <div class="site-phone-status">
+                            <span>13:54</span>
+                            <span>Wi-Fi 84%</span>
+                        </div>
+                        <div class="site-phone-searchbar">
+                            <span class="site-phone-menu" data-icon="view_list" data-size="20"></span>
+                            <div>
+                                <span data-icon="search" data-size="18"></span>
+                                <span data-i18n="mobileSearch">Pesquisar no Organessônium</span>
+                            </div>
+                            <span class="logo-omega">Ω</span>
+                        </div>
+                        <div class="site-phone-heading">
+                            <span data-i18n="mobileFilesTitle">Arquivos</span>
+                            <small data-i18n="mobileRootLabel">Raiz</small>
+                        </div>
+                        <div class="site-phone-grid">
+                            <article class="site-phone-card site-phone-folder">
+                                <div class="site-phone-card-head">
+                                    <span data-icon="folder" data-size="21"></span>
+                                    <strong>Projetos</strong>
+                                </div>
+                                <div class="site-phone-thumb">
+                                    <span data-icon="folder_open" data-size="42"></span>
+                                </div>
+                            </article>
+                            <article class="site-phone-card">
+                                <div class="site-phone-card-head">
+                                    <span data-icon="image" data-size="21"></span>
+                                    <strong>capa.png</strong>
+                                </div>
+                                <div class="site-phone-thumb image">
+                                    <span data-icon="image" data-size="40"></span>
+                                </div>
+                            </article>
+                            <article class="site-phone-card selected">
+                                <div class="site-phone-card-head">
+                                    <span data-icon="picture_as_pdf" data-size="21"></span>
+                                    <strong>relatorio.pdf</strong>
+                                </div>
+                                <div class="site-phone-thumb pdf">
+                                    <span data-icon="picture_as_pdf" data-size="40"></span>
+                                </div>
+                            </article>
+                            <article class="site-phone-card">
+                                <div class="site-phone-card-head">
+                                    <span data-icon="folder_zip" data-size="21"></span>
+                                    <strong>backup.zip</strong>
+                                </div>
+                                <div class="site-phone-thumb zip">
+                                    <span data-icon="folder_zip" data-size="40"></span>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="site-phone-fab" aria-hidden="true">
+                            <span data-icon="add" data-size="24"></span>
+                        </div>
+                        <div class="site-phone-nav">
+                            <span class="active"><span data-icon="folder" data-size="20"></span><small data-i18n="mobileNavFiles">Arquivos</small></span>
+                            <span><span data-icon="refresh" data-size="20"></span><small data-i18n="mobileNavRecent">Recentes</small></span>
+                            <span><span data-icon="drive_file_move" data-size="20"></span><small data-i18n="mobileNavTransfers">Transferências</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-mobile-notes">
+                <article>
+                    <span data-icon="search" data-size="23"></span>
+                    <div>
+                        <h3 data-i18n="mobileNoteSearchTitle">Busca na mão</h3>
+                        <p data-i18n="mobileNoteSearchText">A tela inicial usa uma barra grande de pesquisa, menu lateral e logo no canto, como no app Flutter.</p>
+                    </div>
+                </article>
+                <article>
+                    <span data-icon="add" data-size="23"></span>
+                    <div>
+                        <h3 data-i18n="mobileNoteUploadTitle">Upload por toque</h3>
+                        <p data-i18n="mobileNoteUploadText">O botão flutuante abre as ações de enviar arquivo ou criar pasta, sem depender de arrastar e soltar.</p>
+                    </div>
+                </article>
+                <article>
+                    <span data-icon="folder" data-size="23"></span>
+                    <div>
+                        <h3 data-i18n="mobileNoteNavTitle">Navegação inferior</h3>
+                        <p data-i18n="mobileNoteNavText">Arquivos, recentes e transferências ficam fixos na parte de baixo, seguindo o fluxo do aplicativo Android.</p>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
